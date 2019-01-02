@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { navigate } from '@reach/router'
 
 class LoginBox extends React.Component {
     constructor(props){
@@ -13,8 +14,10 @@ class LoginBox extends React.Component {
     this.handleSubmit = (event) =>{
         event.preventDefault();
         console.log(this.state, "state")
-        if(this.state.username === "admin" && this.state.password == "admin")
+        if(this.state.username === "admin" && this.state.password == "admin"){
         console.log("login")
+        navigate(`/dashboard`)
+        }
     }
        
     }
