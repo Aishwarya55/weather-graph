@@ -1,6 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { navigate } from '@reach/router'
+import userLogin from './../action/userAction'
+import { connect } from 'react-redux'
+// import { connect } from 'redux'
 
 class LoginBox extends React.Component {
     constructor(props){
@@ -15,8 +18,20 @@ class LoginBox extends React.Component {
         event.preventDefault();
         console.log(this.state, "state")
         if(this.state.username === "admin" && this.state.password == "admin"){
-        console.log("login")
-        navigate(`/dashboard`)
+            this.props.userLogin({
+                id:1,
+                name: 'admin',
+                role: 'admin'
+            })
+            navigate(`/dashboard`)
+        }
+        else if(this.state.username === "guest" && this.state.password == "guest"){
+            this.props.userLogin({
+                id:1,
+                name:admin,
+                role:admin
+            })
+            navigate(`/dashboard`)
         }
     }
        
@@ -40,4 +55,10 @@ class LoginBox extends React.Component {
     }
 }
 
-export default LoginBox
+const mapDispatchToProps = (dispatch) => {
+ return{
+     userLogin : (user) => dispatch(userLogin(user))
+ }
+}
+
+export default connect(null, mapDispatchToProps)(LoginBox)

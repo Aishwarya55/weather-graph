@@ -1,13 +1,14 @@
 import { Router } from '@reach/router'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Dashboard from './dashboard'
-import LoginBox from './loginBox'
+import Dashboard from './components/dashboard'
+import LoginBox from './components/loginBox'
 const RouterContainer = () =>{
     return(
         <Router>
             <LoginBox path="/"/>
-            <Dashboard path="/dashboard" />
+            <Dashboard path="/dashboard">
+            </Dashboard>
         </Router>
     )
 }
