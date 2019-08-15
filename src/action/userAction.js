@@ -4,7 +4,7 @@ const userLogin = (user) => {
 console.log(user, "action called")
     return {
         type: LOG_IN,
-        user
+        payload: user
     }
 }
 
